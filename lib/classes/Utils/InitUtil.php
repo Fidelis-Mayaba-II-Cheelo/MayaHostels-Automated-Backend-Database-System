@@ -16,7 +16,9 @@ $memoryCaching = new MemCache();
 
 //Creating an array of daos
 $daos = [];
-$accountsDao = new AccountsDao();
+//adding the daos objects to the array of daos in the order of which ones dont have relationships and which ones have
+$adminDao = new AdminDao($mySqlSingleton, $daos, $sessionCaching);
+$daos['admin'] = $adminDao;
 
 
 

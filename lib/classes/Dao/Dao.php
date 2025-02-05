@@ -15,11 +15,19 @@ class Dao {
     protected array $fields = [];
     //Pagination page size
     protected $pageSize = 10;
+    //caching options
+    protected $cache;
+    //queryBuilder options
+    protected $queryBuilder;
 
-    public function __construct(IDatabaseHelper $database, array $daos=[]){
+    public function __construct(IDatabaseHelper $database, array $daos=[], ICache $cache = null){
         $this->database = $database;
         if($daos){
             $this->daos = $daos;
+        }
+
+        if($cache){
+            $this->cache = $cache;
         }
 
         //Means that current Dao object ($this) is being stored in the $daos array using the value of $this->table as the key
