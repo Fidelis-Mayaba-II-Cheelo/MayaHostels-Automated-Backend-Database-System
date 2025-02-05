@@ -18,7 +18,7 @@ class Accounts extends Entity{
     //Entities that have a relationship with the accounts table in the db
     //(References to related Admin and Student entities.)
     var ?Admin $admin;
-    var ?Student $student;
+    var ?Students $students;
 
     //Mapping our properties to the actual database fields
     var array $__mapping = [
@@ -37,9 +37,9 @@ class Accounts extends Entity{
             "field" => "mh_admin_id",
             "table" => "admin",
         ],
-        "student" => [
+        "students" => [
             "field" => "mh_student_id",
-            "table" => "student",
+            "table" => "students",
         ]
     ];
 }
