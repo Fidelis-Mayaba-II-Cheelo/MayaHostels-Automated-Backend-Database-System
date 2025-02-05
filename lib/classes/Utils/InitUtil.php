@@ -2,7 +2,7 @@
 
 require_once('autoloader.php');
 
-//database configuration'
+//database configuration
 $databaseConfig = new DatabaseHelper('default');
 
 //Specific database connection configurations

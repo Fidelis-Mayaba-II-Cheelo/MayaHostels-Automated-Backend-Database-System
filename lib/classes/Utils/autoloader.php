@@ -3,7 +3,7 @@ spl_autoload_register('autoloader');
 
 function autoloader($classname) {
     //base directory
-    $baseDir = "classes/";
+    $baseDir = "lib/";
     $filename = $classname . '.php';
 
     // Search recursively in subdirectories
