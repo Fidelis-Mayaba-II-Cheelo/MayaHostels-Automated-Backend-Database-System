@@ -72,7 +72,7 @@ class MySQLQueryBuilder implements ISQLQueryBuilder
         if ($choice == "table") {
             $this->query->base = "DROP TABLE IF EXISTS " . $table;
             $this->query->type = 'drop';
-        } else if ($choice == "table") {
+        } else if ($choice == "constraint") {
             $this->query->base = "DROP CONSTRAINT IF EXISTS " . $constraint;
             $this->query->type = 'drop';
         }
