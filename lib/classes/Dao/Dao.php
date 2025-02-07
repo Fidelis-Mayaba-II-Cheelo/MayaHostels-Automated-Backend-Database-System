@@ -18,10 +18,11 @@ class Dao {
     //caching options
     protected $cache;
     //queryBuilder options
-    protected $queryBuilder;
+    protected ISQLQueryBuilder $queryBuilder;
 
-    public function __construct(IDatabaseHelper $database, array $daos=[], ICache $cache = null){
+    public function __construct(IDatabaseHelper $database, ISQLQueryBuilder $queryBuilder, array $daos=[], ICache $cache = null){
         $this->database = $database;
+        $this->queryBuilder = $queryBuilder;
         if($daos){
             $this->daos = $daos;
         }
