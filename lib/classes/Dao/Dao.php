@@ -1,8 +1,8 @@
 <?php
 
 class Dao {
-    //The database names
-    protected $database;
+    //The query adapter that handles the database connection, query builder and the queries themselves.
+    protected QueryAdapter $queryAdapter;
     //The table names
     protected $table;
     //The primary key fields
@@ -20,9 +20,9 @@ class Dao {
     //queryBuilder options
     protected ISQLQueryBuilder $queryBuilder;
 
-    public function __construct(IDatabaseHelper $database, ISQLQueryBuilder $queryBuilder, array $daos=[], ICache $cache = null){
-        $this->database = $database;
-        $this->queryBuilder = $queryBuilder;
+    public function __construct(QueryAdapter $queryAdapter, array $daos=[], ICache $cache = null){
+        $this->queryAdapter = $queryAdapter;
+        
         if($daos){
             $this->daos = $daos;
         }
