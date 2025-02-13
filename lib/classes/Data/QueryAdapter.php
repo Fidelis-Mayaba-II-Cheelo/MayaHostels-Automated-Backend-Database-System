@@ -12,7 +12,7 @@ abstract class QueryAdapter{
     protected $table;
 
     //The primary key of our tables
-    protected $primaryKeyField;
+    protected $primaryKey;
 
     //The page size used for paginations
     protected $pageSize;
@@ -27,13 +27,13 @@ abstract class QueryAdapter{
         IDatabaseHelper $database,
         ISQLQueryBuilder $queryBuilder,
         $table,
-        $primaryKeyField,
+        $primaryKey,
         $pageSize,
     ){
         $this->database = $database;
         $this->queryBuilder = $queryBuilder;
         $this->table = $table;
-        $this->primaryKeyField = $primaryKeyField;
+        $this->primaryKey = $primaryKey;
         $this->pageSize = $pageSize;
     }
 
@@ -49,9 +49,9 @@ abstract class QueryAdapter{
     //Generic function for executing queries(Does the whole creation of the database connection and is used to execute queries within the other functions)
     abstract function executeQuery($sql);
 
-    //Function to run a custom query
+    //Function to run a custom query(Specifically for complex queries involving joins, subqueries, stored procedures, sql functions etc)
     abstract function query($sql);
 
     //Function that gets the details of every field in a database table
-    abstract function getFieldDetails();
+    abstract function describe();
 }
