@@ -26,14 +26,23 @@ abstract class QueryAdapter{
     public function __construct(
         IDatabaseHelper $database,
         ISQLQueryBuilder $queryBuilder,
-        $table,
-        $primaryKey,
-        $pageSize,
     ){
         $this->database = $database;
         $this->queryBuilder = $queryBuilder;
+    }
+
+    //Our setter to set the table manually
+    public function setTable($table){
         $this->table = $table;
-        $this->primaryKey = $primaryKey;
+    }
+
+    //Our setter to set the primary key manually
+    public function setPrimaryKey($primaryKey){
+        $this->primaryKey=$primaryKey;
+    }
+
+    //Our setter to set the page size manually
+    public function setPageSize($pageSize){
         $this->pageSize = $pageSize;
     }
 

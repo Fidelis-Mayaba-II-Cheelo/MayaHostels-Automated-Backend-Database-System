@@ -34,6 +34,13 @@ class Dao {
         //Means that current Dao object ($this) is being stored in the $daos array using the value of $this->table as the key
         $this->daos[$this->table] = $this;
 
+        //Adding the setter methods for our query adapter(Setter for the table, primary key and pageSize)
+        //Will get to understanding why when we finish the dao creation
+        $this->queryAdapter->setTable($this->table);
+        $this->queryAdapter->setPrimaryKey($this->primaryKeyField);
+        $this->queryAdapter->setPageSize($this->pageSize);
+
+        //Calling the init function that is within each individual Dao object(which is responsible for creating each entity instance)
         $this->init();
     }
 
