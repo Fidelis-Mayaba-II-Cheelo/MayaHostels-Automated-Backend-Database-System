@@ -51,7 +51,7 @@ maya_hostels_room_id INT NOT NULL,
 FOREIGN KEY(maya_hostels_room_id) REFERENCES rooms(maya_hostels_room_id) ON DELETE CASCADE
 );
 
-CREATE TABLE `students`(
+CREATE TABLE `students`(-
 maya_hostels_student_id INT NOT NULL auto_increment PRIMARY KEY,
 student_name VARCHAR(100) NOT NULL,
 student_number INT NOT NULL unique,
