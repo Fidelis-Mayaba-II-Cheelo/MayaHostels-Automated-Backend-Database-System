@@ -35,7 +35,16 @@ class MySQLQueryBuilder implements ISQLQueryBuilder
     public function update(string $table, array $fields, array $values, string $operator = '='): ISQLQueryBuilder
     {
         $this->reset();
-        $this->query->base = "UPDATE " . $table . "SET " . "(" . implode(", ", $fields) . ")" . $operator . "(" . implode(", ", $values) . ")";
+
+        $sets = [];
+        $count = 0;
+        foreach($fields as $field){
+            $value = $values[$count]===null?"NULL":("'".$values[$count]."'");
+            $sets[]="$field = $value";
+            $count++;
+        }
+
+        $this->query->base = "UPDATE " . $table . " SET " . implode(", ", $sets);
         $this->query->type = 'update';
         return $this;
     }
