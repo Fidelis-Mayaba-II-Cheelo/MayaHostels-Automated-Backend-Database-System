@@ -64,11 +64,36 @@ class Dao {
 
     }
 
-    public function delete($id){
+    public function delete(Entity $entity){
+        $id = null;
+        foreach($entity->__mapping as $key => $value){
+            if($value === $this->primaryKeyField){
+                $id = $entity->{$key};
+                break;
+            }
+        }
 
+        if(!$id){
+            throw new Exception("No value supplied for Id");
+        }
+
+        if($this->cache){
+            $this->cache->destroyAll();
+        }
+
+        return $this->queryAdapter->delete($id);
     }
 
     public function drop(){
 
+    }
+
+    public function getFieldDetails(){
+        $rows = $this->queryAdapter->describe();
+        if($rows){
+            foreach($rows as $row){
+                $this->fields[$row['Field']] = $row;
+            }
+        }
     }
 }
