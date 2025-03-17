@@ -17,8 +17,7 @@ class Dao {
     protected $pageSize = 10;
     //caching options
     protected $cache;
-    //queryBuilder options
-    protected ISQLQueryBuilder $queryBuilder;
+    
     //Handling error Messages
     protected $errorMessage;
 
