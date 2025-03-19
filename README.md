@@ -1,0 +1,2 @@
+# MayaHostelsBoardingHouseProject-Object-Oriented-Version
+This is the Maya Hostels Boarding House Project that is in the works. It is the Object Oriented Version utilizing various object oriented principles as well as design patterns. The project's backend also heavily relies on the MySQL database. This is evident in the use of stored procedures, SQL functions and triggers throughout the project. 
