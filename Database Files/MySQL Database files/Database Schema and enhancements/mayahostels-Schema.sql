@@ -119,6 +119,17 @@ FOREIGN KEY(maya_hostels_admin_id) REFERENCES admin(maya_hostels_admin_id) ON DE
 FOREIGN KEY(maya_hostels_student_id) REFERENCES students(maya_hostels_student_id) ON DELETE CASCADE
 );
 
+CREATE TABLE admin_notifications (
+    maya_hostels_admin_notifications_id INT NOT NULL auto_increment PRIMARY KEY,
+    notification_message VARCHAR(255) NOT NULL,
+    notification_status tinyint DEFAULT 0,
+    date_sent TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    maya_hostels_admin_id INT NOT NULL,
+    maya_hostels_student_id INT NOT NULL,
+    FOREIGN KEY (maya_hostels_admin_id)REFERENCES admin(maya_hostels_admin_id) ON DELETE CASCADE,
+    FOREIGN KEY (maya_hostels_student_id)REFERENCES students(maya_hostels_student_id) ON DELETE CASCADE
+);
+
 CREATE TABLE `ratings`(
 maya_hostels_ratings_id INT NOT NULL auto_increment PRIMARY KEY,
 student_rating_message VARCHAR(255) NOT NULL,

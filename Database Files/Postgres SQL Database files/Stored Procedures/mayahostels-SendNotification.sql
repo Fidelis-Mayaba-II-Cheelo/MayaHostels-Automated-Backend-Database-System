@@ -12,11 +12,11 @@ DECLARE
 BEGIN
     IF mh_student_id IS NULL AND mh_single_student = FALSE THEN
         FOR mh_current_student_id IN student_id_cursor LOOP
-            INSERT INTO notifications (notification_message, maya_hostels_admin_id, maya_hostels_student_id) 
-            VALUES (mh_message, mh_admin_id, mh_current_student_id);
+            INSERT INTO notifications (notification_message, maya_hostels_admin_id, maya_hostels_student_id, notification_status) 
+            VALUES (mh_message, mh_admin_id, mh_current_student_id, 1);
         END LOOP;
     ELSEIF mh_student_id IS NOT NULL AND mh_single_student = TRUE THEN
-        INSERT INTO notifications (notification_message, maya_hostels_admin_id, maya_hostels_student_id) 
-            VALUES (mh_message, mh_admin_id, mh_student_id);
+        INSERT INTO notifications (notification_message, maya_hostels_admin_id, maya_hostels_student_id, notification_status) 
+            VALUES (mh_message, mh_admin_id, mh_student_id, 1);
     END IF;
 END $$;
