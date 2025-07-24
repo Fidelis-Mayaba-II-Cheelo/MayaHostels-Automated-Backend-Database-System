@@ -63,9 +63,9 @@ CREATE TABLE students (
     profile_picture VARCHAR(255) NOT NULL,
     gender VARCHAR(10) CHECK (gender IN ('Male', 'Female', 'Other')),
     accommodation_status VARCHAR(10) CHECK (accommodation_status IN ('None', 'Pending', 'Approved')),
-    maya_hostels_hostel_id INT NOT NULL,
-    maya_hostels_room_id INT NOT NULL,
-    maya_hostels_bedspaces_id INT NOT NULL,
+    maya_hostels_hostel_id INT,
+    maya_hostels_room_id INT,
+    maya_hostels_bedspaces_id INT,
     FOREIGN KEY (maya_hostels_hostel_id) REFERENCES hostels (maya_hostels_hostel_id) ON DELETE CASCADE,
     FOREIGN KEY (maya_hostels_room_id) REFERENCES rooms (maya_hostels_room_id) ON DELETE CASCADE,
     FOREIGN KEY (maya_hostels_bedspaces_id) REFERENCES bedspaces (maya_hostels_bedspaces_id) ON DELETE CASCADE
