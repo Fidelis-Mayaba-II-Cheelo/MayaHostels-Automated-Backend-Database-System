@@ -113,6 +113,8 @@ CREATE TABLE notifications (
     notification_message VARCHAR(255) NOT NULL,
     notification_status SMALLINT DEFAULT 0,
     date_sent TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_broadcast BOOLEAN DEFAULT false,
+    broadcast_id UUID,
     maya_hostels_admin_id INT NOT NULL,
     maya_hostels_student_id INT NOT NULL,
     FOREIGN KEY (maya_hostels_admin_id) REFERENCES admin (maya_hostels_admin_id) ON DELETE CASCADE,
